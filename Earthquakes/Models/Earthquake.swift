@@ -1,0 +1,39 @@
+//
+//  Earthquake.swift
+//  Earthquakes
+//
+//  Created by Oleksandr Pronin on 07.02.20.
+//  Copyright © 2020 pronin. All rights reserved.
+//
+
+import Foundation
+import CoreLocation
+
+struct Earthquake: Decodable {
+    let id: String
+    let date: Date
+    let depth: Double
+    let magnitude: Double
+    let coordinate: CLLocationCoordinate2D
+    let src: String
+    enum CodingKeys: String, CodingKey {
+        case id = "eqid"
+        case date = "datetime"
+        case depth
+        case magnitude
+        case lng
+        case lat
+        case src
+    }
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        date = try container.decode(Date.self, forKey: .date)
+        depth = try container.decode(Double.self, forKey: .depth)
+        magnitude = try container.decode(Double.self, forKey: .magnitude)
+        let latitude = try container.decode(CLLocationDegrees.self, forKey: .lat)
+        let longitude = try container.decode(CLLocationDegrees.self, forKey: .lng)
+        coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        src = try container.decode(String.self, forKey: .src)
+    }
+}
