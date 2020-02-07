@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  EarthquakeListViewController.swift
 //  Earthquakes
 //
 //  Created by Oleksandr Pronin on 07.02.20.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class EarthquakeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-
 }
-
