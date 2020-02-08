@@ -9,31 +9,36 @@
 import Foundation
 import CoreLocation
 
-struct Earthquake: Decodable {
-    let id: String
-    let date: Date
-    let depth: Double
-    let magnitude: Double
-    let coordinate: CLLocationCoordinate2D
-    let src: String
-    enum CodingKeys: String, CodingKey {
-        case id = "eqid"
-        case date = "datetime"
-        case depth
-        case magnitude
-        case lng
-        case lat
-        case src
+struct Earthquake {
+    struct Root: Decodable {
+        let earthquakes: [Item]
     }
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(String.self, forKey: .id)
-        date = try container.decode(Date.self, forKey: .date)
-        depth = try container.decode(Double.self, forKey: .depth)
-        magnitude = try container.decode(Double.self, forKey: .magnitude)
-        let latitude = try container.decode(CLLocationDegrees.self, forKey: .lat)
-        let longitude = try container.decode(CLLocationDegrees.self, forKey: .lng)
-        coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        src = try container.decode(String.self, forKey: .src)
+    struct Item: Decodable {
+        let id: String
+        let depth: Double
+        let magnitude: Double
+        let src: String
+        let date: Date
+        let coordinate: CLLocationCoordinate2D
+        enum CodingKeys: String, CodingKey {
+            case id = "eqid"
+            case depth
+            case magnitude
+            case src
+            case date = "datetime"
+            case lng
+            case lat
+        }
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            id = try container.decode(String.self, forKey: .id)
+            depth = try container.decode(Double.self, forKey: .depth)
+            magnitude = try container.decode(Double.self, forKey: .magnitude)
+            src = try container.decode(String.self, forKey: .src)
+            date = try container.decode(Date.self, forKey: .date)
+            let latitude = try container.decode(CLLocationDegrees.self, forKey: .lat)
+            let longitude = try container.decode(CLLocationDegrees.self, forKey: .lng)
+            coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        }
     }
 }
