@@ -11,12 +11,18 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    let navigator = Navigator()
+    let testing = NSClassFromString("XCTest") != nil
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard (scene as? UIWindowScene) != nil else { return }
+        guard !testing else { return }
+        guard let rootNavigationController = window?.rootViewController as? UINavigationController else { return }
+        let boundingCoordinates = GeonamesAPI.BoundingCoordinates(north: 44.1, south: -9.9, east: -22.4, west: 55.2)
+        navigator.show(segue: .earthquakeList(boundingCoordinates, "mkoppelman"), sender: rootNavigationController)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

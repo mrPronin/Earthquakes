@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09396F1123F02C2600CE6A16 /* EarthquakeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09396F1023F02C2600CE6A16 /* EarthquakeListViewModel.swift */; };
+		09396F1323F02CC800CE6A16 /* EarthquakeItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09396F1223F02CC800CE6A16 /* EarthquakeItemViewController.swift */; };
+		09396F1523F02D0200CE6A16 /* EarthquakeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09396F1423F02D0200CE6A16 /* EarthquakeItemViewModel.swift */; };
+		09396F1723F02FEF00CE6A16 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09396F1623F02FEF00CE6A16 /* String+localized.swift */; };
 		09C7BA6323EDA7220035B1CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C7BA6223EDA7220035B1CA /* AppDelegate.swift */; };
 		09C7BA6523EDA7220035B1CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C7BA6423EDA7220035B1CA /* SceneDelegate.swift */; };
 		09C7BA6723EDA7220035B1CA /* EarthquakeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C7BA6623EDA7220035B1CA /* EarthquakeListViewController.swift */; };
@@ -19,11 +23,17 @@
 		09C7BA8023EF42AC0035B1CA /* DateFormatter+GeonamesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C7BA7F23EF42AC0035B1CA /* DateFormatter+GeonamesAPI.swift */; };
 		09C7BA8323EF49110035B1CA /* UIView+activityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C7BA8223EF49110035B1CA /* UIView+activityIndicator.swift */; };
 		09C7BA8523EF4BA80035B1CA /* Sequence+Perform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C7BA8423EF4BA80035B1CA /* Sequence+Perform.swift */; };
+		09C7BA8A23F01FF30035B1CA /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C7BA8923F01FF30035B1CA /* Navigator.swift */; };
+		09C7BA8D23F023BC0035B1CA /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C7BA8C23F023BC0035B1CA /* AppStoryboard.swift */; };
 		681B5EF3033FF03B77D2F074 /* Pods_Earthquakes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 061B41ABC8BFD227F8C67810 /* Pods_Earthquakes.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		061B41ABC8BFD227F8C67810 /* Pods_Earthquakes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Earthquakes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		09396F1023F02C2600CE6A16 /* EarthquakeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeListViewModel.swift; sourceTree = "<group>"; };
+		09396F1223F02CC800CE6A16 /* EarthquakeItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeItemViewController.swift; sourceTree = "<group>"; };
+		09396F1423F02D0200CE6A16 /* EarthquakeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthquakeItemViewModel.swift; sourceTree = "<group>"; };
+		09396F1623F02FEF00CE6A16 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		09C7BA5F23EDA7220035B1CA /* Earthquakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Earthquakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C7BA6223EDA7220035B1CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09C7BA6423EDA7220035B1CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +48,8 @@
 		09C7BA7F23EF42AC0035B1CA /* DateFormatter+GeonamesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+GeonamesAPI.swift"; sourceTree = "<group>"; };
 		09C7BA8223EF49110035B1CA /* UIView+activityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+activityIndicator.swift"; sourceTree = "<group>"; };
 		09C7BA8423EF4BA80035B1CA /* Sequence+Perform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Perform.swift"; sourceTree = "<group>"; };
+		09C7BA8923F01FF30035B1CA /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		09C7BA8C23F023BC0035B1CA /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		D70B9F0EEDD486E72874AA83 /* Pods-Earthquakes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earthquakes.release.xcconfig"; path = "Target Support Files/Pods-Earthquakes/Pods-Earthquakes.release.xcconfig"; sourceTree = "<group>"; };
 		EED6AEB4D6A7EC063A05890E /* Pods-Earthquakes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Earthquakes.debug.xcconfig"; path = "Target Support Files/Pods-Earthquakes/Pods-Earthquakes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,16 +87,15 @@
 		09C7BA6123EDA7220035B1CA /* Earthquakes */ = {
 			isa = PBXGroup;
 			children = (
-				09C7BA8123EF48D00035B1CA /* Utils */,
 				09C7BA7A23EDB2550035B1CA /* Models */,
 				09C7BA7723EDAC0D0035B1CA /* API */,
+				09C7BA8623F01E940035B1CA /* ViewModels */,
+				09C7BA8823F01F0D0035B1CA /* ViewControllers */,
+				09C7BA8723F01EBF0035B1CA /* Assets */,
+				09C7BA8123EF48D00035B1CA /* Extensions */,
 				09C7BA6223EDA7220035B1CA /* AppDelegate.swift */,
+				09C7BA8923F01FF30035B1CA /* Navigator.swift */,
 				09C7BA6423EDA7220035B1CA /* SceneDelegate.swift */,
-				09C7BA6623EDA7220035B1CA /* EarthquakeListViewController.swift */,
-				09C7BA6823EDA7220035B1CA /* Main.storyboard */,
-				09C7BA6B23EDA7240035B1CA /* Assets.xcassets */,
-				09C7BA6D23EDA7240035B1CA /* LaunchScreen.storyboard */,
-				09C7BA7023EDA7240035B1CA /* Info.plist */,
 			);
 			path = Earthquakes;
 			sourceTree = "<group>";
@@ -107,13 +118,52 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		09C7BA8123EF48D00035B1CA /* Utils */ = {
+		09C7BA8123EF48D00035B1CA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				09C7BA8223EF49110035B1CA /* UIView+activityIndicator.swift */,
 				09C7BA8423EF4BA80035B1CA /* Sequence+Perform.swift */,
+				09396F1623F02FEF00CE6A16 /* String+localized.swift */,
 			);
-			path = Utils;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		09C7BA8623F01E940035B1CA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				09396F1023F02C2600CE6A16 /* EarthquakeListViewModel.swift */,
+				09396F1423F02D0200CE6A16 /* EarthquakeItemViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		09C7BA8723F01EBF0035B1CA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				09C7BA8B23F023920035B1CA /* Storyboards */,
+				09C7BA6B23EDA7240035B1CA /* Assets.xcassets */,
+				09C7BA6D23EDA7240035B1CA /* LaunchScreen.storyboard */,
+				09C7BA7023EDA7240035B1CA /* Info.plist */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		09C7BA8823F01F0D0035B1CA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				09C7BA6623EDA7220035B1CA /* EarthquakeListViewController.swift */,
+				09396F1223F02CC800CE6A16 /* EarthquakeItemViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		09C7BA8B23F023920035B1CA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				09C7BA6823EDA7220035B1CA /* Main.storyboard */,
+				09C7BA8C23F023BC0035B1CA /* AppStoryboard.swift */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		21E0D9F90DD04046E5BC3541 /* Frameworks */ = {
@@ -268,14 +318,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09C7BA8D23F023BC0035B1CA /* AppStoryboard.swift in Sources */,
 				09C7BA8523EF4BA80035B1CA /* Sequence+Perform.swift in Sources */,
+				09396F1123F02C2600CE6A16 /* EarthquakeListViewModel.swift in Sources */,
 				09C7BA7C23EDB2780035B1CA /* Earthquake.swift in Sources */,
+				09C7BA8A23F01FF30035B1CA /* Navigator.swift in Sources */,
 				09C7BA6723EDA7220035B1CA /* EarthquakeListViewController.swift in Sources */,
+				09396F1323F02CC800CE6A16 /* EarthquakeItemViewController.swift in Sources */,
 				09C7BA8023EF42AC0035B1CA /* DateFormatter+GeonamesAPI.swift in Sources */,
+				09396F1723F02FEF00CE6A16 /* String+localized.swift in Sources */,
 				09C7BA7923EDAD340035B1CA /* GeonamesAPI.swift in Sources */,
 				09C7BA6323EDA7220035B1CA /* AppDelegate.swift in Sources */,
 				09C7BA8323EF49110035B1CA /* UIView+activityIndicator.swift in Sources */,
 				09C7BA6523EDA7220035B1CA /* SceneDelegate.swift in Sources */,
+				09396F1523F02D0200CE6A16 /* EarthquakeItemViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +478,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q8M6V9HM9E;
-				INFOPLIST_FILE = Earthquakes/Info.plist;
+				INFOPLIST_FILE = Earthquakes/Assets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -430,7 +486,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pronin.Earthquakes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -441,7 +497,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q8M6V9HM9E;
-				INFOPLIST_FILE = Earthquakes/Info.plist;
+				INFOPLIST_FILE = Earthquakes/Assets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,7 +505,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pronin.Earthquakes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
