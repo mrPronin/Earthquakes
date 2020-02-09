@@ -94,8 +94,8 @@
 				09C7BA8723F01EBF0035B1CA /* Assets */,
 				09C7BA8123EF48D00035B1CA /* Extensions */,
 				09C7BA6223EDA7220035B1CA /* AppDelegate.swift */,
-				09C7BA8923F01FF30035B1CA /* Navigator.swift */,
 				09C7BA6423EDA7220035B1CA /* SceneDelegate.swift */,
+				09C7BA8923F01FF30035B1CA /* Navigator.swift */,
 			);
 			path = Earthquakes;
 			sourceTree = "<group>";

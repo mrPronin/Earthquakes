@@ -9,11 +9,39 @@
 import UIKit
 
 extension UIView {
-    func showActivityIndicator(_ color: UIColor? = nil) {
-        let indicatorView = UIActivityIndicatorView(style: .large)
+    // MARK: - Public
+    var activityIndicator: UIActivityIndicatorView {
+        get {
+            if let indicatorView = self.subviews.compactMap({ $0 as? UIActivityIndicatorView }).first {
+                return indicatorView
+            }
+            return addActivityIndicator()
+        }
+        set {
+            removeActivityIndicator()
+            addSubview(newValue)
+            autolayout(for: newValue)
+        }
+    }
+    func addActivityIndicator(_ style: UIActivityIndicatorView.Style? = .medium, color: UIColor? = nil) -> UIActivityIndicatorView {
+        if let indicatorView = self.subviews.compactMap({ $0 as? UIActivityIndicatorView }).first {
+            if let color = color {
+                indicatorView.color = color
+            }
+            if let style = style {
+                indicatorView.style = style
+            }
+            return indicatorView
+        }
+        let indicatorView = UIActivityIndicatorView(style: style ?? .medium)
         indicatorView.color = color
+        addSubview(indicatorView)
+        autolayout(for: indicatorView)
+        return indicatorView
+    }
+    // MARK: - Private
+    private func autolayout(for indicatorView: UIActivityIndicatorView) {
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(indicatorView)
         self.bringSubviewToFront(indicatorView)
         // constraints
         do {
@@ -24,9 +52,8 @@ extension UIView {
             constraints.append(indicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor))
             constraints.forEach { $0.isActive = true }
         }
-        indicatorView.startAnimating()
     }
-    func hideActivityIndicator() {
+    private func removeActivityIndicator() {
         self.subviews
             .compactMap { $0 as? UIActivityIndicatorView }
             .forEachPerform { $0.stopAnimating() }

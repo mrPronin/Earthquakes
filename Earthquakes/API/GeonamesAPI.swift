@@ -56,7 +56,8 @@ struct GeonamesAPI: GeonamesAPIProtocol {
         parameters["formatted"] = "true"
         parameters["username"] = user
         return getRequest(address: .earthquakes, parameters: parameters)
-            .delay(.seconds(4), scheduler: MainScheduler.instance)
+            // delay for debug purposes
+            .delay(.seconds(1), scheduler: MainScheduler.instance)
             .map { data in
 //                if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? JSONObject {
 //                    print("json: \(json)")

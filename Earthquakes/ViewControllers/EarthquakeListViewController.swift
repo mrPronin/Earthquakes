@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 class EarthquakeListViewController: UIViewController {
-    // MARK: - Public API
+    // MARK: - Public
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,12 @@ class EarthquakeListViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        bindUI()
+        DispatchQueue.main.async { [weak self] in
+            self?.bindUI()
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     // MARK: - Private
     @IBOutlet weak var tableView: UITableView!
@@ -30,6 +35,7 @@ class EarthquakeListViewController: UIViewController {
 // MARK: - Private
 extension EarthquakeListViewController {
     internal func bindUI() {
+        _ = self.view.addActivityIndicator(.large)
         viewModel.data
             .bind(to: tableView.rx.items) { (_, _, element: Earthquake.Item) in
                 let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
@@ -37,20 +43,20 @@ extension EarthquakeListViewController {
                 return cell
             }
             .disposed(by: bag)
+        let running = viewModel.data
+            .filter { !$0.isEmpty }
+            .map { _ in false }
+            .startWith(true)
+            .asDriver(onErrorJustReturn: false)
+        running
+            .drive(self.view.activityIndicator.rx.isAnimating)
+            .disposed(by: bag)
+        running
+            .drive(tableView.rx.isHidden)
+            .disposed(by: bag)
     }
     internal func setupOnLoad() {
         title = "Earthquakes list".localized
-        /*
-        let boundingCoordinates = GeonamesAPI.BoundingCoordinates(north: 44.1, south: -9.9, east: -22.4, west: 55.2)
-        view.showActivityIndicator()
-        GeonamesAPI.earthquakes(with: boundingCoordinates, user: "mkoppelman")
-            .subscribe(onNext: { [weak self] in
-            $0.forEach { [weak self] in
-                print("[\(type(of: self)) \(#function)] \($0)")
-                self?.view.hideActivityIndicator()
-            }
-        })
-        .disposed(by: bag)
-        */
+        tableView.tableFooterView = UIView()
     }
 }
