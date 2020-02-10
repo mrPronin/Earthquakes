@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class EarthquakeListViewController: UIViewController {
+class EarthquakeListViewController: BaseViewController {
     // MARK: - Public
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -26,13 +26,24 @@ class EarthquakeListViewController: UIViewController {
     var viewModel: EarthquakeListViewModelProtocol!
     var navigator: NavigatorProtocol!
 }
+// MARK: - UITableViewDelegate
+extension EarthquakeListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return EarthquakeListCell.height()
+    }
+}
 // MARK: - Private
 extension EarthquakeListViewController {
     internal func bindUI() {
         viewModel.data
-            .bind(to: tableView.rx.items) { (_, _, element: Earthquake.Item) in
-                let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-                cell.textLabel?.text = element.id
+            .bind(to: tableView.rx.items) { (tableView: UITableView, index: Int, model: DisplayedItemProtocol) in
+                guard let viewType = model.viewType as? BaseTableViewCell.Type else {
+                    fatalError("Expect BaseTableViewCell")
+                }
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: viewType.identifier, for: IndexPath(row: index, section: 0)) as? BaseTableViewCell else {
+                    fatalError("Expect BaseTableViewCell")
+                }
+                _ = cell.configure(with: model)
                 return cell
             }
             .disposed(by: bag)
@@ -43,7 +54,7 @@ extension EarthquakeListViewController {
             })
             .disposed(by: bag)
         tableView.rx
-            .modelSelected((Earthquake.Item).self)
+            .modelSelected(DisplayedItemProtocol.self)
             .subscribe(onNext: { [weak self] model in
                 guard let stringSelf = self else { return }
                 stringSelf.navigator.show(segue: .earthquakeItem(model), sender: stringSelf)
@@ -65,6 +76,11 @@ extension EarthquakeListViewController {
     }
     internal func setupOnLoad() {
         title = "Earthquakes list".localized
-        tableView.tableFooterView = UIView()
+        // tableView
+        tableView.tableFooterView = UIView(frame: .zero)
+        tableView.registerCellNib(EarthquakeListCell.self)
+        tableView.rx
+            .setDelegate(self)
+            .disposed(by: bag)
     }
 }

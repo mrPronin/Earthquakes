@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import MapKit
 
-class EarthquakeMapViewController: UIViewController {
+class EarthquakeMapViewController: BaseViewController {
     // MARK: - Public
     // MARK: - View Lifecycle
     override func viewDidLoad() {
