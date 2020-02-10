@@ -58,7 +58,7 @@ struct GeonamesAPI: GeonamesAPIProtocol {
         parameters["maxRows"] = "500"
         return getRequest(address: .earthquakes, parameters: parameters)
             // delay for debug purposes
-            .delay(.seconds(1), scheduler: MainScheduler.instance)
+//            .delay(.seconds(1), scheduler: MainScheduler.instance)
             .map { data in
 //                if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? JSONObject {
 //                    print("json: \(json)")
