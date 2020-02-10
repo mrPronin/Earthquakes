@@ -16,15 +16,9 @@ class EarthquakeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupOnLoad()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         DispatchQueue.main.async { [weak self] in
             self?.bindUI()
         }
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     // MARK: - Private
     @IBOutlet weak var tableView: UITableView!
@@ -35,7 +29,6 @@ class EarthquakeListViewController: UIViewController {
 // MARK: - Private
 extension EarthquakeListViewController {
     internal func bindUI() {
-        _ = self.view.addActivityIndicator(.large)
         viewModel.data
             .bind(to: tableView.rx.items) { (_, _, element: Earthquake.Item) in
                 let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
@@ -43,6 +36,21 @@ extension EarthquakeListViewController {
                 return cell
             }
             .disposed(by: bag)
+        tableView.rx
+            .itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.tableView.deselectRow(at: indexPath, animated: true)
+            })
+            .disposed(by: bag)
+        tableView.rx
+            .modelSelected((Earthquake.Item).self)
+            .subscribe(onNext: { [weak self] model in
+                guard let stringSelf = self else { return }
+                stringSelf.navigator.show(segue: .earthquakeItem(model), sender: stringSelf)
+            })
+            .disposed(by: bag)
+        // activityIndicator
+        _ = self.view.addActivityIndicator(.large)
         let running = viewModel.data
             .filter { !$0.isEmpty }
             .map { _ in false }

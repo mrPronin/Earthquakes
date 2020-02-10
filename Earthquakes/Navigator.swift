@@ -17,7 +17,7 @@ struct Navigator: NavigatorProtocol {
     // MARK: - segues list
     enum Segue {
         case earthquakeList(GeonamesAPI.BoundingCoordinates, String)
-        case earthquakeItem(CLLocationCoordinate2D)
+        case earthquakeItem(Earthquake.Item)
     }
     // MARK: - invoke segue
     func show(segue: Navigator.Segue, sender: UIViewController) {
@@ -28,8 +28,12 @@ struct Navigator: NavigatorProtocol {
             target.viewModel = viewModel
             target.navigator = self
             show(target: target, sender: sender)
-        case .earthquakeItem(let coordinate):
-            break
+        case .earthquakeItem(let model):
+            let viewModel = EarthquakeMapViewModel(model: model)
+            let target = EarthquakeMapViewController.instantiate(fromAppStoryboard: .Main)
+            target.viewModel = viewModel
+            target.navigator = self
+            show(target: target, sender: sender)
         }
     }
     private func show(target: UIViewController, sender: UIViewController) {

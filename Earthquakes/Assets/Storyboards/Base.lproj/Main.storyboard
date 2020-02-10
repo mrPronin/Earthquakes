@@ -39,6 +39,36 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
         </scene>
+        <!--Earthquake Map View Controller-->
+        <scene sceneID="yHu-OE-Na2">
+            <objects>
+                <viewController storyboardIdentifier="EarthquakeMapViewController" id="czA-aa-aUf" customClass="EarthquakeMapViewController" customModule="Earthquakes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SXc-67-915">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="e6d-1Z-Ggd" userLabel="mapView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="T7V-oP-oVS" firstAttribute="bottom" secondItem="e6d-1Z-Ggd" secondAttribute="bottom" id="DGs-N6-Gj9"/>
+                            <constraint firstItem="T7V-oP-oVS" firstAttribute="trailing" secondItem="e6d-1Z-Ggd" secondAttribute="trailing" id="dVH-W3-z7h"/>
+                            <constraint firstItem="e6d-1Z-Ggd" firstAttribute="top" secondItem="T7V-oP-oVS" secondAttribute="top" id="fR5-P6-ncf"/>
+                            <constraint firstItem="e6d-1Z-Ggd" firstAttribute="leading" secondItem="T7V-oP-oVS" secondAttribute="leading" id="jbz-Ci-7hP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T7V-oP-oVS"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="mapView" destination="e6d-1Z-Ggd" id="Zoh-Qv-P5G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YV2-Md-yYm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2038" y="139"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Aoh-xs-1uE">
             <objects>
